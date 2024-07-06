@@ -1,0 +1,67 @@
+/* CSS file for ProfRegister & UserRegister both */
+
+.regsign-div {
+    margin: 7vh 0 4vh 28vw;
+    /* border: 0.2px solid black; */
+    box-sizing: border-box;
+    box-shadow: 3px 3px 5px 5px rgb(212, 230, 238);
+    border-radius: 7px;
+    width: 48vw;
+    background-color: rgb(239, 248, 250);
+}
+
+.heading {
+    height: 40px;
+    background-color: rgb(247, 245, 245);
+    text-align: center;
+    padding: 6px;
+    font-weight: 700;
+    font-size: large;
+}
+
+.reg-form {
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+}
+
+.form-inputs {
+    display: flex;
+    flex-direction: row;
+    margin: 10px 0 10px 0;
+    justify-content: space-between;
+}
+
+@media screen and (max-width:994px) {
+    .form-inputs {
+        flex-direction: column;
+    }
+    #name-ip {
+        width: auto;
+    }
+}
+
+#name-ip {
+    width: 100%;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--bs-body-color);
+    appearance: none;
+    background-color: var(--bs-body-bg);
+    background-clip: padding-box;
+    border: var(--bs-border-width) solid var(--bs-border-color);
+    border-radius: var(--bs-border-radius);
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+#subbtn {
+    width: 12%;
+    height: auto;
+    padding: 7px;
+}
+
+#form-gender {
+    margin: 10px 0 0 10px;
+}

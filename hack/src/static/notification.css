@@ -1,0 +1,26 @@
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+      }
+.notification {
+      padding: 10px;
+      margin: 10px;
+      border-radius: 4px;
+      color: #fff;
+    text-align: center;
+      animation: fadeIn 0.5s ease-out;
+      
+    }
+    
+    .notification.success {
+      background-color: #4caf50;
+    }
+    
+    .notification.error {
+      background-color: #f44336;
+}
+    .notification.warning {
+          background-color: #ff9800;
+    }
+    
+        

@@ -1,0 +1,24 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 80%; /* Adjust the width here */
+  margin: 0 auto; /* Center the container */
+  justify-content: center;
+}
+.item {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+ justify-content: center;
+}
+.item.left {
+  align-items: left;
+  text-align: left;
+  justify-self: left;
+}
+.item.right {
+  align-items: right;
+  text-align: right;
+  justify-self: right;
+
+}
