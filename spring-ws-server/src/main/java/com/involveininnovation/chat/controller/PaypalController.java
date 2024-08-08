@@ -13,7 +13,6 @@ import  com.involveininnovation.chat.service.PaypalService;
 
 @Controller
 @RequiredArgsConstructor
-@RequestMapping("Legal")
 @Slf4j
 public class PaypalController {
     private final PaypalService paypalService;
