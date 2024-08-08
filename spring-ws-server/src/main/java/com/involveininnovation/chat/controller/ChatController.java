@@ -3,22 +3,21 @@ package com.involveininnovation.chat.controller;
 import com.involveininnovation.chat.model.ChatHistory;
 import com.involveininnovation.chat.model.Message;
 import com.involveininnovation.chat.Repository.ChatHistoryRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
-import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
 
 
-@Controller
+@RestController
+@RequiredArgsConstructor
 public class ChatController {
-    @Autowired
-    private ChatHistoryRepository repository;
-    @Autowired
-    private SimpMessagingTemplate simpMessagingTemplate;
+    private final ChatHistoryRepository repository;
+    private final SimpMessagingTemplate simpMessagingTemplate;
 
     @MessageMapping("/message")
     @SendTo("/chatroom/public")
@@ -40,7 +39,7 @@ public class ChatController {
 
         repository.save(history);
         simpMessagingTemplate.convertAndSendToUser(id,"/private",message);
-        System.out.println(message.toString());
+        System.out.println(message);
         return message;
     }
 }

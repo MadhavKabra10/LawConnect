@@ -3,6 +3,7 @@ package com.involveininnovation.chat.controller;
 import com.involveininnovation.chat.Repository.ChatHistoryRepository;
 import com.involveininnovation.chat.model.ChatHistory;
 import com.involveininnovation.chat.model.Message;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,9 +17,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 @RestController
 @RequestMapping("Legal")
+@RequiredArgsConstructor
 public class StandardController {
-    @Autowired
-    private ChatHistoryRepository chatHistory;
+    private final ChatHistoryRepository chatHistory;
     Logger logger
             = LoggerFactory.getLogger(StandardController.class);
     @GetMapping("/connect/{id}")

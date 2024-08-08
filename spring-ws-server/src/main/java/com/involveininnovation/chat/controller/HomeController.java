@@ -1,44 +1,33 @@
 package com.involveininnovation.chat.controller;
 import com.involveininnovation.chat.Repository.UserRepository;
 
+import com.involveininnovation.chat.Security.auth.*;
 import com.involveininnovation.chat.model.*;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import java.util.ArrayList;
-import java.util.stream.Collectors;
 import java.util.List;
 
 @RestController
 @RequestMapping("Legal")
+@RequiredArgsConstructor
 public class HomeController {
-   // @Autowired
-  //  private AuthenticationManager authenticationManager;
-    @Autowired
-    private UserRepository userDatabase;
+    private final AuthenticationService authenticationService;
+    private final UserRepository userDatabase;
     Logger logger
             = LoggerFactory.getLogger(ChatHistory.class);
     @PostMapping ("/register")
     @CrossOrigin(origins = "http://localhost:3000")
-    public String register(@RequestBody User user) throws Exception{
-       if( userDatabase.findUserByEmail(user.getEmail()).isPresent())
-           return "not_ok";
-       else {
-           userDatabase.save(user);
-           return "ok";
-       }
+    public ResponseEntity<AuthenticationResponse> register(@RequestBody RegisterRequest registerRequest) throws Exception{
+        return ResponseEntity.ok(authenticationService.register(registerRequest));
     }
     @PostMapping ("/login")
     @CrossOrigin(origins = "http://localhost:3000")
-    public String login(@RequestBody Login user) throws Exception{
-        if( userDatabase.findUserByEmail(user.getEmail()).isPresent()) {
-            User found=userDatabase.findUserByEmail(user.getEmail()).orElse(new User());
-
-            return found.getProfession();
-        }
-        else
-            return "not_ok";
+    public ResponseEntity<AuthenticationResponse> login(@RequestBody LoginRequest loginRequest) throws Exception{
+        return ResponseEntity.ok(authenticationService.login(loginRequest));
     }
     @GetMapping ("/search")
     @CrossOrigin(origins = "http://localhost:3000")

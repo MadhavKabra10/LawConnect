@@ -9,12 +9,9 @@ import java.util.Date;
 @AllArgsConstructor
 @Getter
 @Setter
-@ToString
-
+@Document
 public class ChatHistory {
     @Id
     private String id;
-
     private List<Message> messages;
-
 }
