@@ -17,9 +17,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 @RestController
 @RequestMapping("Legal")
-@RequiredArgsConstructor
 public class StandardController {
-    private final ChatHistoryRepository chatHistory;
+    @Autowired
+    private ChatHistoryRepository chatHistory;
     Logger logger
             = LoggerFactory.getLogger(StandardController.class);
     @GetMapping("/connect/{id}")
@@ -43,6 +43,7 @@ public class StandardController {
 
     }
     @GetMapping("/test")
+    @CrossOrigin(origins = "http://localhost:3000")
     public String recor(){
         return "Manas";
     }

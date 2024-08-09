@@ -7,8 +7,11 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 
+import javax.management.relation.Role;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Document
@@ -18,8 +21,8 @@ import java.util.List;
 public class User implements UserDetails {
     @Id
     private String email;
-    private String firstName;
-    private String lastName;
+    private String fname;
+    private String lname;
     private String password;
     private String gender;
     private String profession;
@@ -28,9 +31,16 @@ public class User implements UserDetails {
     private List<String> connection;
     private List<String> pending;
     private Roles role;
+
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of(new SimpleGrantedAuthority(role.name()));
     }
+
+    @Override
+    public String getPassword() {
+        return this.password;
+    }
+
     public String getUsername() {
         return email;
     }
@@ -49,6 +59,20 @@ public class User implements UserDetails {
 
     public boolean isEnabled() {
         return true;
+    }
+    public User(String fname, String lname, String email, String password,
+                String phone, String gender, String city, String profession,Roles role){
+        this.fname = fname;
+        this.lname = lname;
+        this.email = email;
+        this.password = password;
+        this.phone = phone;
+        this.gender = gender;
+        this.city = city;
+        this.profession = profession;
+        this.role = Roles.USER;
+        this.pending=new ArrayList<>();
+        this.connection=new ArrayList<>();
     }
 
 }

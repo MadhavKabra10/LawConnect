@@ -17,9 +17,9 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Configuration
-@RequiredArgsConstructor
 public class ApplicationConfig {
-    private final UserRepository repo;
+    @Autowired
+    private UserRepository repo;
     Logger logger = LoggerFactory.getLogger(AuthenticationProvider.class);
     @Bean
     public UserDetailsService userDetailsService() {

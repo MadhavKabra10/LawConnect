@@ -1,6 +1,8 @@
 package com.involveininnovation.chat.model;
 
 import lombok.*;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import java.util.List;
 
 
@@ -9,6 +11,7 @@ import java.util.List;
 @Getter
 @Setter
 @ToString
+@Builder
 public class Summary {
 
     private String summary;

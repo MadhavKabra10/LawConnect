@@ -4,6 +4,7 @@ import com.involveininnovation.chat.Repository.UserRepository;
 import com.involveininnovation.chat.Security.auth.*;
 import com.involveininnovation.chat.model.*;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.slf4j.Logger;
@@ -15,8 +16,10 @@ import java.util.List;
 @RequestMapping("Legal")
 @RequiredArgsConstructor
 public class HomeController {
-    private final AuthenticationService authenticationService;
-    private final UserRepository userDatabase;
+    @Autowired
+    private AuthenticationService authenticationService;
+    @Autowired
+    private UserRepository userDatabase;
     Logger logger
             = LoggerFactory.getLogger(ChatHistory.class);
     @PostMapping ("/register")

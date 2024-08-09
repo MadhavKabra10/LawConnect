@@ -18,13 +18,15 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @EnableWebSecurity
 @EnableMethodSecurity
 @Slf4j
-@RequiredArgsConstructor
 public class WebSecurityConfig {
-    private final JwtAuthenticationFilter jwtAuthFilter;
-    private final AuthenticationProvider authenticationProvider;
+    @Autowired
+    private  JwtAuthenticationFilter jwtAuthFilter;
+    @Autowired
+    private  AuthenticationProvider authenticationProvider;
     private static final String[] WHITE_LIST = {
             "Legal/register",
-            "Legal/login"
+            "Legal/login",
+            "ws/**"
             //Frontend files
     };
     @Bean

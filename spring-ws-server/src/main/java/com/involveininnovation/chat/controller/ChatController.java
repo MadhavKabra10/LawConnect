@@ -4,10 +4,12 @@ import com.involveininnovation.chat.model.ChatHistory;
 import com.involveininnovation.chat.model.Message;
 import com.involveininnovation.chat.Repository.ChatHistoryRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
@@ -16,11 +18,14 @@ import java.util.ArrayList;
 @RestController
 @RequiredArgsConstructor
 public class ChatController {
-    private final ChatHistoryRepository repository;
-    private final SimpMessagingTemplate simpMessagingTemplate;
+    @Autowired
+    private ChatHistoryRepository repository;
+    @Autowired
+    private SimpMessagingTemplate simpMessagingTemplate;
 
     @MessageMapping("/message")
     @SendTo("/chatroom/public")
+    @CrossOrigin(origins = "http://localhost:3000")
     public Message receiveMessage(@Payload Message message){
         return message;
     }

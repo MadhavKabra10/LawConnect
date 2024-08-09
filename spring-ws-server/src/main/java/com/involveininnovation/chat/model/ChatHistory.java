@@ -1,4 +1,5 @@
 package com.involveininnovation.chat.model;
+import java.util.ArrayList;
 import java.util.List;
 import lombok.*;
 import org.springframework.data.annotation.Id;
@@ -13,5 +14,5 @@ import java.util.Date;
 public class ChatHistory {
     @Id
     private String id;
-    private List<Message> messages;
+    private List<Message> messages = new ArrayList<>();
 }
