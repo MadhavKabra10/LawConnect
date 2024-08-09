@@ -51,9 +51,23 @@ function ChatPage() {
   }
   useEffect(() => {
     if(localStorage.getItem('role')=="user"){
-    axios.get("http://localhost:8080/Legal/search").then(res=>{
+    axios.get("http://localhost:8080/Legal/search",
+      {
+        headers: {
+        'Authorization': `Bearer ${localStorage.getItem("jwt")}`,
+        'Content-Type': 'application/json' 
+      }
+  }
+    ).then(res=>{
       //console.log(res);
-      axios.post("http://localhost:8080/Legal/self",{email:localStorage.getItem('user')}).then(self=>{
+      axios.post("http://localhost:8080/Legal/self",{email:localStorage.getItem('user')},
+      {
+        headers: {
+        'Authorization': `Bearer ${localStorage.getItem("jwt")}`,
+        'Content-Type': 'application/json' 
+      }
+  }
+    ).then(self=>{
         console.log(self.data.connection,self.data.pending,res.data);
 
        let f= res.data.filter(data=>!self.data.connection.includes(data.email)&&!self.data.pending.includes(data.email));

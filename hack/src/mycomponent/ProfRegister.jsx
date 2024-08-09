@@ -35,17 +35,18 @@ export default function ProfRegister() {
   "city":city,
   "phone":pin,
   "connection":[],
-  "pending":[]
+  "pending":[],
+  "role":"USER"
       }
   )
-  if(res.data=="ok"){
-  localStorage.setItem('jwt',res.data);
+console.log("89",res.token);
+  localStorage.setItem('jwt',res.data.token);
   localStorage.setItem('user',email);
   localStorage.setItem('role',prof);
   localStorage.setItem('dateNow',new Date().getTime);
   navigate('/')
   console.log("done", res);
-  }
+
     // make the API call
     
   };
@@ -154,17 +155,7 @@ export default function ProfRegister() {
 
               <div> */}
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <Form.Label>Role</Form.Label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <input
-                  id="name-ip"
-                  type="text"
-                  name="role"
-                  value={role}
-                  onChange={(e) => setRole(e.target.value)}
-                  placeholder="Enter Your role"
 
-                />
               </div>
             </div>
           </Form.Group>

@@ -32,10 +32,16 @@ export default function Connection() {
     ]
     const [notes, setNotes] = useState([])
     useEffect(() => {
-
-         axios.post("http://localhost:8080/Legal/self",{email:localStorage.getItem('user')}).then(res=>{
+         axios.post("http://localhost:8080/Legal/self",{email:localStorage.getItem('user')},
+        {
+            headers: {
+            'Authorization': `Bearer ${localStorage.getItem("jwt")}`,
+            'Content-Type': 'application/json' 
+          }
+      }
+    ).then(res=>{
             console.log(res);
-            setNotes(res.data.connection)
+             setNotes(res.data.connection)
         })
         
     }, [])

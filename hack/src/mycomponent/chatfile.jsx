@@ -26,7 +26,13 @@ const ChatFile = (objectlist) => {
     const value = event.target.hiddenValue.value;
     let val=JSON.parse(value)
     console.log({sender:localStorage.getItem('user'),receiver:val.email,role:'user'},value,val)
-    axios.post("http://localhost:8080/Legal/connection",{sender:localStorage.getItem('user'),receiver:val.email,role:'user'}).then(
+    axios.post("http://localhost:8080/Legal/connection",{sender:localStorage.getItem('user'),receiver:val.email,role:'user'},
+    {
+      headers: {
+      'Authorization': `Bearer ${localStorage.getItem("jwt")}`,
+      'Content-Type': 'application/json' 
+    }
+}).then(
       res=>{
         objectlist.setter(old=>old.filter(p=>p.email!=val.email));
       }

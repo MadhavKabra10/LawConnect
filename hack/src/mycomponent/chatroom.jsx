@@ -72,7 +72,12 @@ const sendMessage=(message)=>{
       id=props.user1+props.user2;
     else
       id=props.user2+props.user1;
-  axios.get(`http://localhost:8080/Legal/connect/${id}`)
+  axios.get(`http://localhost:8080/Legal/connect/${id}`,        {
+    headers: {
+    'Authorization': `Bearer ${localStorage.getItem("jwt")}`,
+    'Content-Type': 'application/json' 
+  }
+})
       .then(response => {
     //    console.log(response.data);
       //  console.log(response.data.messages);

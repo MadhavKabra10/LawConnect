@@ -9,11 +9,18 @@ export default function Pending() {
     const val =e.target.take.value;
     console.log(val,1)
     console.log({sender:localStorage.getItem('user'),receiver:val,role:'non_user'})
-    axios.post("http://localhost:8080/Legal/connection",{sender:localStorage.getItem('user'),receiver:val,role:'non_user'}).then(
-        res=>{
-          setNotes(old=>old.filter(p=>p!=val));
-        }
-    )
+    const res=await axios.post("http://localhost:8080/Legal/connection",{sender:localStorage.getItem('user'),receiver:val,role:'non_user'},
+    {
+        headers: {
+        'Authorization': `Bearer ${localStorage.getItem("jwt")}`,
+        'Content-Type': 'application/json' 
+      }
+  }
+)
+        
+         setNotes(old=>old.filter(p=>p!=val));
+        
+    
    }
     const dummyData = [
         {
@@ -35,17 +42,24 @@ export default function Pending() {
             PhoneNo: 9876543210,
             Gender: "Female",
             City: "Los Angeles",
-            Profession: "Doctor",
-            Role: "User"
+            Profession: "Doctor"
+            
         }
     ]
     const [notes, setNotes] = useState([])
     useEffect(() => {
-        axios.post("http://localhost:8080/Legal/self",{email:localStorage.getItem('user')}).then(res=>{
-            console.log(res.data);
-            setNotes(res.data.pending)
+        axios.post("http://localhost:8080/Legal/self",{email:localStorage.getItem('user')},
+        {
+            headers: {
+            'Authorization': `Bearer ${localStorage.getItem("jwt")}`,
+            'Content-Type': 'application/json' 
+          }
+      }
+    ).then(res=>{
+            console.log(res);
+             setNotes(res.data.pending)
         })
-
+        
     }, [])
     return <>
 
