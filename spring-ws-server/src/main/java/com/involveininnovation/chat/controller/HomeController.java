@@ -19,7 +19,7 @@ public class HomeController {
     @Autowired
     private AuthenticationService authenticationService;
     @Autowired
-    private UserRepository userDatabase;
+    private UserRepository userRepository;
     Logger logger
             = LoggerFactory.getLogger(ChatHistory.class);
     @PostMapping ("/register")
@@ -35,13 +35,11 @@ public class HomeController {
     @GetMapping ("/search")
     @CrossOrigin(origins = "http://localhost:3000")
     public List<User> search() throws Exception{
-        List<User> users=userDatabase.findAll();
-               List<User>filteredUsers=new ArrayList<>();
-        for(int i=0;i<users.size();i++){
-            if(!(users.get(i).getProfession().equals("user")))
-                filteredUsers.add(users.get(i));
+        List<User> users = userRepository.findAll();
+        List<User> filteredUsers = new ArrayList<>();
+        for (User user : users) {
+            if (!(user.getProfession().equals("user"))) filteredUsers.add(user);
         }
-
         return filteredUsers;
     }
     @PostMapping ("/connection")
@@ -50,10 +48,10 @@ public class HomeController {
         String sender=chatConnect.getSender();
         String receiver=chatConnect.getReceiver();
         String role=chatConnect.getRole();
-        User Sender=userDatabase.findUserByEmail(sender).orElse(new User());
-        User Receiver=userDatabase.findUserByEmail(receiver).orElse(new User());
+        User Sender = userRepository.findUserByEmail(sender).orElse(new User());
+        User Receiver = userRepository.findUserByEmail(receiver).orElse(new User());
         if(role.equalsIgnoreCase("user")){
-         List<String> items=   Receiver.getPending();
+         List<String> items = Receiver.getPending();
 
          if(!items.contains(sender)){
              items.add(sender);
@@ -61,8 +59,8 @@ public class HomeController {
              List<String> ritems=Sender.getPending();
              ritems.add(receiver);
              Sender.setPending(ritems);
-             userDatabase.save(Sender);
-             userDatabase.save(Receiver);
+             userRepository.save(Sender);
+             userRepository.save(Receiver);
              return "ok";
          }
          else{
@@ -116,8 +114,8 @@ public class HomeController {
             Receiver.setPending(rpen);
             Sender.setConnection(scon);
             Sender.setPending(spen);
-            userDatabase.save(Sender);
-            userDatabase.save(Receiver);
+            userRepository.save(Sender);
+            userRepository.save(Receiver);
             return "ok";
         }
 
@@ -127,7 +125,7 @@ public class HomeController {
     @PostMapping ("/self")
     @CrossOrigin(origins = "http://localhost:3000")
     public User recoverself(@RequestBody Mail mail){
-        return userDatabase.findUserByEmail(mail.getEmail()).orElse(new User());
+        return userRepository.findUserByEmail(mail.getEmail()).orElse(new User());
     }
 
 //    @PostMapping ("/service")

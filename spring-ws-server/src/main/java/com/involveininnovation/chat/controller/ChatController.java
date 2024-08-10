@@ -23,15 +23,15 @@ public class ChatController {
     @Autowired
     private SimpMessagingTemplate simpMessagingTemplate;
 
-    @MessageMapping("/message")
-    @SendTo("/chatroom/public")
-    @CrossOrigin(origins = "http://localhost:3000")
-    public Message receiveMessage(@Payload Message message){
-        return message;
-    }
+//    @MessageMapping("/message")
+//    @SendTo("/chatroom/public")
+//    @CrossOrigin(origins = "http://localhost:3000")
+//    public Message receiveMessage(@Payload Message message){
+//        return message;
+//    }
 
     @MessageMapping("/private-message")
-    public Message recMessage(@Payload Message message){
+    public Message receiveMessage(@Payload Message message){
         String id;
         if(message.getSenderName().compareTo(message.getReceiverName())>0){
             id=message.getSenderName()+message.getReceiverName();
@@ -39,11 +39,12 @@ public class ChatController {
         else {
             id = message.getReceiverName() + message.getSenderName();
         }
-        ChatHistory history = repository.findUserById(id).orElse(new ChatHistory(id,new ArrayList<>()));
+        ChatHistory history = repository.findChatHistoryById(id).orElse(new ChatHistory(id,new ArrayList<>()));
         history.getMessages().add(message);
 
         repository.save(history);
-        simpMessagingTemplate.convertAndSendToUser(id,"/private",message);
+        simpMessagingTemplate.convertAndSendToUser(message.getSenderName(),"/private",message);
+        simpMessagingTemplate.convertAndSendToUser(message.getReceiverName(),"/private",message);
         System.out.println(message);
         return message;
     }

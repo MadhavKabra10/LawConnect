@@ -14,5 +14,5 @@ import java.util.Date;
 public class ChatHistory {
     @Id
     private String id;
-    private List<Message> messages = new ArrayList<>();
+    private List<Message> messages;
 }
