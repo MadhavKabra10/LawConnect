@@ -45,7 +45,6 @@ public class ChatController {
         repository.save(history);
         simpMessagingTemplate.convertAndSendToUser(message.getSenderName(),"/private",message);
         simpMessagingTemplate.convertAndSendToUser(message.getReceiverName(),"/private",message);
-        System.out.println(message);
         return message;
     }
 }

@@ -26,7 +26,8 @@ public class WebSecurityConfig {
     private static final String[] WHITE_LIST = {
             "Legal/register",
             "Legal/login",
-            "ws/**"
+            "ws/**",
+            "payment/**"
             //Frontend files
     };
     @Bean

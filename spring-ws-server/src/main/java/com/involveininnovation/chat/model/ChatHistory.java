@@ -11,6 +11,7 @@ import java.util.Date;
 @Getter
 @Setter
 @Document
+@ToString
 public class ChatHistory {
     @Id
     private String id;
