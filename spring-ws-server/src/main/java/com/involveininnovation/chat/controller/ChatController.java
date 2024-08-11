@@ -41,10 +41,9 @@ public class ChatController {
         }
         ChatHistory history = repository.findChatHistoryById(id).orElse(new ChatHistory(id,new ArrayList<>()));
         history.getMessages().add(message);
-
         repository.save(history);
-        simpMessagingTemplate.convertAndSendToUser(message.getSenderName(),"/private",message);
-        simpMessagingTemplate.convertAndSendToUser(message.getReceiverName(),"/private",message);
+//        simpMessagingTemplate.convertAndSendToUser(message.getSenderName(),"user/private",message);
+        simpMessagingTemplate.convertAndSendToUser(id,"/private",message);
         return message;
     }
 }

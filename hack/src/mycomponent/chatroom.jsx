@@ -19,7 +19,7 @@ export default function Chat(props) {
   const onPrivateMessage = (payload) => {
     console.log(payload, 19);
     var payloadData = JSON.parse(payload.body);
-
+    console.log(767867986)
     console.log(messages, 2);
     //handleClickOpen('paper');
     addMessage(payloadData.senderName, payloadData.message, payloadData.date, payloadData.status);

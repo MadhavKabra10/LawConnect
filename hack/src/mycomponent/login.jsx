@@ -20,14 +20,14 @@ function LoginProf() {
     axios.post('http://localhost:8080/Legal/login', { password: password, email: email, }, { headers: { 'Content-Type': 'application/json', }, })
       .then(response => {
       //  console.log('Response:', response.data);
-        if(response.token!==""){
-          localStorage.setItem('jwt','ok');
+        
+          localStorage.setItem('jwt',response.data.token);
           localStorage.setItem('user',email);
           localStorage.setItem('role',response.token);
           localStorage.setItem('dateNow',new Date().getTime);
           navigate('/')
           console.log("done", response);
-          }
+
 
       })
       .catch(error => {
