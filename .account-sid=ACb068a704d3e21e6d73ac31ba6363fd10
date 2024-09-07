@@ -1,0 +1,84 @@
+[33mcommit bfff6bae4448e525bcbaf043710db1101d3763cc[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m
+Author: MadhavKabra10 <madhavkabra57@gmail.com>
+Date:   Sat Sep 7 14:49:21 2024 +0530
+
+    Env variables setup
+
+[33mcommit 4102729b0388756139f4d17835db42b3d8e1160d[m
+Merge: 1e23682 c0d9039
+Author: MadhavKabra10 <madhavkabra57@gmail.com>
+Date:   Sat Sep 7 12:14:03 2024 +0530
+
+    Merge branch 'main' of https://github.com/manasagar/law_clone
+
+[33mcommit 1e23682087e9d03f37deeeeda863884548cb5b37[m
+Author: MadhavKabra10 <madhavkabra57@gmail.com>
+Date:   Sat Sep 7 12:05:21 2024 +0530
+
+    Added 2 factor authentication for lawyers
+
+[33mcommit c0d9039fc6a3d658ae647f49be69fe577e83a2e9[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Ramanand87 <145758252+Ramanand87@users.noreply.github.com>
+Date:   Fri Aug 23 20:53:11 2024 +0530
+
+    Update README.md
+
+[33mcommit 13d43d1b6215f6ca49582e3a456b7e062c721bba[m
+Author: MadhavKabra10 <madhavkabra57@gmail.com>
+Date:   Sun Aug 11 19:24:34 2024 +0530
+
+    Chat issue solved at backend
+
+[33mcommit 5ad599d05fae02f9a7154c5b2445565367dea41d[m
+Author: MadhavKabra10 <madhavkabra57@gmail.com>
+Date:   Sat Aug 10 15:58:28 2024 +0530
+
+    Added withSockJS()
+
+[33mcommit e4db5820056b0d68a93726c903ea50e97f8e9532[m
+Author: MadhavKabra10 <madhavkabra57@gmail.com>
+Date:   Sat Aug 10 10:51:02 2024 +0530
+
+    Corrected chat feature logic
+
+[33mcommit 8068e40a3468608d3720bfda696e6d6aef881a4d[m
+Author: manasagar <manasagarwal12921@gmail.com>
+Date:   Fri Aug 9 17:24:11 2024 +0530
+
+    operations
+
+[33mcommit a3ca485bddeceb3816ff0df9be2e67316d2f28a8[m
+Author: manasagar <manasagarwal12921@gmail.com>
+Date:   Fri Aug 9 17:19:10 2024 +0530
+
+    operation
+
+[33mcommit aa6211b248c1a7f73883d28d0b7ccdeb31e332e4[m
+Author: MadhavKabra10 <129947800+MadhavKabra10@users.noreply.github.com>
+Date:   Fri Aug 9 00:10:24 2024 +0530
+
+    Update PaypalController.java
+
+[33mcommit cd14a82b9309b2b96467fcdfc0bc8a644d018ccc[m
+Author: MadhavKabra10 <129947800+MadhavKabra10@users.noreply.github.com>
+Date:   Fri Aug 9 00:09:36 2024 +0530
+
+    Update PaypalController.java
+
+[33mcommit 249dff8fab7f7b433c3277606428732bb06b9b52[m
+Author: MadhavKabra10 <madhavkabra57@gmail.com>
+Date:   Thu Aug 8 23:53:32 2024 +0530
+
+    Added JWT
+
+[33mcommit 898303a58b01caeabec8a82525a761fa1ad492a4[m
+Author: MadhavKabra10 <madhavkabra57@gmail.com>
+Date:   Thu Aug 8 23:18:04 2024 +0530
+
+    Added JWT
+
+[33mcommit b57ef40a718b223645123572d533eff38240dba1[m
+Author: manasagar <manasagarwal12921@gmail.com>
+Date:   Sat Jul 6 16:57:24 2024 +0530
+
+    clone
