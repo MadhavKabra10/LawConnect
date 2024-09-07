@@ -1,6 +1,5 @@
 package com.involveininnovation.chat.Security.config;
 
-import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -12,7 +11,6 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-
 
 @Configuration
 @EnableWebSecurity
@@ -26,6 +24,7 @@ public class WebSecurityConfig {
     private static final String[] WHITE_LIST = {
             "Legal/register",
             "Legal/login",
+            "Legal/verify-otp",
             "ws/**",
             "payment/**"
             //Frontend files

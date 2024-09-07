@@ -32,6 +32,11 @@ public class HomeController {
     public ResponseEntity<AuthenticationResponse> login(@RequestBody LoginRequest loginRequest) throws Exception{
         return ResponseEntity.ok(authenticationService.login(loginRequest));
     }
+    @PostMapping("/verify-otp/")
+    @CrossOrigin(origins = "http://localhost:3000")
+    public ResponseEntity<AuthenticationResponse> verifyOtp(@RequestParam String email,@RequestParam String otp)throws Exception{
+        return ResponseEntity.ok(authenticationService.verifyOtp(email,otp));
+    }
     @GetMapping ("/search")
     @CrossOrigin(origins = "http://localhost:3000")
     public List<User> search() throws Exception{

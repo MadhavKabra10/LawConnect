@@ -23,6 +23,8 @@ public class User implements UserDetails {
     private String email;
     private String fname;
     private String lname;
+//  private String mname;
+//  private String barRegistration;
     private String password;
     private String gender;
     private String profession;
