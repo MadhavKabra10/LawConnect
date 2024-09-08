@@ -15,6 +15,7 @@ import java.util.List;
 @RestController
 @RequestMapping("Legal")
 @RequiredArgsConstructor
+
 public class HomeController {
     @Autowired
     private AuthenticationService authenticationService;
@@ -32,10 +33,10 @@ public class HomeController {
     public ResponseEntity<AuthenticationResponse> login(@RequestBody LoginRequest loginRequest) throws Exception{
         return ResponseEntity.ok(authenticationService.login(loginRequest));
     }
-    @PostMapping("/verify-otp/")
+    @PostMapping("/verify-otp")
     @CrossOrigin(origins = "http://localhost:3000")
-    public ResponseEntity<AuthenticationResponse> verifyOtp(@RequestParam String email,@RequestParam String otp)throws Exception{
-        return ResponseEntity.ok(authenticationService.verifyOtp(email,otp));
+    public ResponseEntity<AuthenticationResponse> verifyOtp(@RequestBody OtpModel otpModel)throws Exception{
+        return ResponseEntity.ok(authenticationService.verifyOtp(otpModel.email(), otpModel.otp()));
     }
     @GetMapping ("/search")
     @CrossOrigin(origins = "http://localhost:3000")

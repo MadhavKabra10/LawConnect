@@ -57,7 +57,7 @@ public class AuthenticationService {
             throw new Exception("VERY BAD CREDENTIALS");
         }
         var user = repo.findUserByEmail(loginRequest.getEmail()).orElseThrow();
-        if(user.getProfession().equals("Lawyer")){
+        if(!user.getProfession().equals("user")){
             String otp = otpService.generateOtp(user);
             otpService.sendOtp(user,otp);
             return AuthenticationResponse.builder().token("OTP sent!Please verify to complete login").build();
