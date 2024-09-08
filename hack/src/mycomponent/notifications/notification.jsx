@@ -1,5 +1,5 @@
 import React from 'react';
-import '../static/notification.css';
+// import '../static/notification.css';
 
 export default function Notification({ message, type }) {
   return (

@@ -175,9 +175,6 @@ export default function Chat(props) {
 
         <DialogActions >
           <Button onClick={handleMessage} color='success'>Message</Button>
-
-          {/* <Button onClick={handleClose}>Cancel</Button> */}
-
         </DialogActions>
       </Dialog>
     </React.Fragment>

@@ -6,7 +6,7 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Pending from './pending';
 import Connection from './connection';
-import Header from './header/header';
+import Header from '../../mycomponent/header/header';
 import ProfilePage from './profile';
 import Update from './update';
 

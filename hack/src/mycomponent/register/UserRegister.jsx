@@ -1,5 +1,5 @@
-import './login.css';
-import Header from './header/header';
+
+import Header from '../header/header';
 import axios from 'axios';
 import { useState } from 'react';
 import { Form, Button } from "react-bootstrap";

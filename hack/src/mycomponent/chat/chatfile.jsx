@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Button from '@mui/material/Button'
 import { Avatar } from "@mui/material";
-import Notification from './notification';
+import Notification from '../notifications/notification';
 import axios from 'axios';
 
 

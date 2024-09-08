@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import NewsCard from "./newsCard";
 import { useEffect } from "react";
 import axios from "axios";
-import Header from "./header/header";
+import Header from "../../mycomponent/header/header";
 export default function NewsPage() {
     const key = '5233005f8fa44186b33dc9aeecf8918a';
     async function scrapeSite(apiKey) {
@@ -21,7 +21,7 @@ export default function NewsPage() {
         });
     }, [])
 
-    return (
+    return ( 
         <>
             <div>
                 <Header />
