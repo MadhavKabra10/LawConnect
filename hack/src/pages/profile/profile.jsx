@@ -9,7 +9,7 @@ import {
   MDBBtn,
 } from "mdb-react-ui-kit";
 import { Avatar } from "@mui/material";
-import Chat from "../../mycomponent/chat/chatroom";
+import Chat from "../chat/chatroom";
 import "./profile.css";
 export default function ProfilePage(props) {
   const disable = props.disable;

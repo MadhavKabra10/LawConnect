@@ -55,7 +55,7 @@ const Header = () => {
   ];
   return (
     <div>
-      <div className="w-full  border-b-[2px] flex justify-between items-center h-20 text-black text-xl">
+      <div className="w-full  border-b-[2px] flex justify-between bg-white items-center h-20 text-black text-xl">
         <h1 className="w-full text-3xl font-bold text-gray-600 ml-[10vw]">
                 <Link to={"./"} style={{color:"Black", textDecoration:"none"}}>
                     LawConnect

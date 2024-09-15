@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Avatar } from "@mui/material";
-import Chat from "../../mycomponent/chat/chatroom";
+import Chat from "../chat/chatroom";
 import axios from "axios";
 import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";

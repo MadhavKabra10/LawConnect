@@ -4,7 +4,7 @@ import LoginProf from './mycomponent/login&logout/login';
 import ProfRegister from './mycomponent/register/ProfRegister';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import UserRegister from './mycomponent/register/UserRegister';
-import ChatPage from './mycomponent/chat/chatpage';
+import ChatPage from './pages/chat/chatpage';
 import Law from './mycomponent/InfoBot/InfoBot'
 import About from './pages/about/about';
 import Network from './pages/profile/network';

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import Header from "../../mycomponent/header/header";
 import React from 'react';
-
+import Footer from "../../mycomponent/footer/footer";
 function About() {
     return (
         <>
@@ -74,6 +74,7 @@ function About() {
                 <Link to="/contact" className="bg-white text-blue-500 font-bold py-3 px-8 rounded-full shadow-md hover:bg-gray-100 transition">Contact Us</Link>
             </div>
         </div>
+        <Footer/>
         </>
     );
 }

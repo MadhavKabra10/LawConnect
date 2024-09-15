@@ -9,7 +9,7 @@ import Connection from './connection';
 import Header from '../../mycomponent/header/header';
 import ProfilePage from './profile';
 import Update from './update';
-
+import Footer from '../../mycomponent/footer/footer';
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -71,6 +71,7 @@ export default function Network() {
         <Connection/>
       </CustomTabPanel>
     </Box>
+    <Footer/>
     </>
   );
 }

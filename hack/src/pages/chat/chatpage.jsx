@@ -1,4 +1,5 @@
-import Header from "../header/header";
+import Header from "../../mycomponent/header/header";
+import Footer from "../../mycomponent/footer/footer";
 import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
@@ -111,6 +112,7 @@ function ChatPage() {
       </form>
 
       <ChatFile props={filterData} setter={setfilterData} />
+      <Footer/>
     </>
   );
 }
