@@ -34,14 +34,14 @@ const Header = () => {
     return 0;
   }
   const navigate = useNavigate();
-  // useEffect(()=>{
-  // if(loginCheck()===0)
-  //   {
-  //     navigate('/');
-  //     addNotification("Please login", "success")
-  //   }
-  // },[])
-  // State to manage the navbar's visibility
+  useEffect(()=>{
+  if(loginCheck()===0)
+    {
+      navigate('/');
+      addNotification("Please login", "success")
+    }
+  },[])
+
   const [nav, setNav] = useState(false);
   const handleNav=()=>{setNav(!nav);};
   const navItems = [
@@ -51,6 +51,7 @@ const Header = () => {
     { id: 4, text: "InfoBot", link: "/info" },
     { id: 5, text: "Chat", link: "/chat" },
     { id: 6, text: "About", link: "/about" },
+    { id: 7 ,text:`${loginCheck()==0?"login":"logout"}`,link:`${loginCheck()==0?"login":"logout"}`}
     
   ];
   return (

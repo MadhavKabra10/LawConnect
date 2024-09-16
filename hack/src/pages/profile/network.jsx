@@ -62,7 +62,7 @@ export default function Network() {
       </Box>
       <CustomTabPanel value={value} index={0}>
         <ProfilePage disable={1}/>
-        <Update state="Uttarkhand" city="Dehradun" pin="1234" />
+       
       </CustomTabPanel>
       <CustomTabPanel value={value} index={1}>
         <Pending/>

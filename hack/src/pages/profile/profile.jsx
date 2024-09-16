@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import {
   MDBCol,
   MDBContainer,
@@ -11,7 +12,39 @@ import {
 import { Avatar } from "@mui/material";
 import Chat from "../chat/chatroom";
 import "./profile.css";
+
 export default function ProfilePage(props) {
+
+  const [email,setEmail] =useState("")
+  const [phone,setPhone]=useState("")
+  const [gender,setGender]=useState("")
+  const [city,setCity]=useState("")
+  const [profession,setProfession]=useState("")
+  const [fname,setFname]=useState("")
+  const [lname,setLname]=useState("")
+
+  useEffect( ()=>{
+   async function solve(){
+   const res= await axios.post("http://localhost:8080/Legal/self",{email:localStorage.getItem('user')},
+     {
+         headers: {
+         'Authorization': `Bearer ${localStorage.getItem("jwt")}`,
+         'Content-Type': 'application/json' 
+       }
+   }
+
+      )
+      setEmail(res.data.email);
+     setPhone(res.data.phone);
+     setGender(res.data.gender);
+     setCity(res.data.city);
+     setProfession(res.data.profession);
+     setFname(res.data.fname);
+     setLname(res.data.lname);
+    }
+    solve()
+     
+   },[])
   const disable = props.disable;
   return (
     <section style={{ backgroundColor: "#f4f5f7" }}>
@@ -28,13 +61,12 @@ export default function ProfilePage(props) {
                 style={{ padding: "2rem" }}
               >
                 <Avatar
-                  alt="Johnatan Smith"
-                  src="/static/images/avatar/1.jpg"
+                  alt={fname}
                   sx={{ width: 100, height: 100, marginBottom: "1rem" }}
                 />
-                <h5 className="font-bold">Johnatan Smith</h5>
-                <p className="mb-1">Full Stack Developer</p>
-                <p className="mb-4">Bay Area, San Francisco, CA</p>
+                <h5 className="font-bold">{fname+" "+lname}</h5>
+                <p className="mb-1">{profession}</p>
+                <p className="mb-4">{city}</p>
                 {disable === 1 ? (
                   <></>
                 ) : (
@@ -61,7 +93,7 @@ export default function ProfilePage(props) {
                   </MDBCol>
                   <MDBCol sm="9">
                     <MDBCardText className="text-muted">
-                      Johnatan Smith
+                    {fname+" "+lname}
                     </MDBCardText>
                   </MDBCol>
                 </MDBRow>
@@ -72,7 +104,7 @@ export default function ProfilePage(props) {
                   </MDBCol>
                   <MDBCol sm="9">
                     <MDBCardText className="text-muted">
-                      example@example.com
+                      {email}
                     </MDBCardText>
                   </MDBCol>
                 </MDBRow>
@@ -83,18 +115,7 @@ export default function ProfilePage(props) {
                   </MDBCol>
                   <MDBCol sm="9">
                     <MDBCardText className="text-muted">
-                      (097) 234-5678
-                    </MDBCardText>
-                  </MDBCol>
-                </MDBRow>
-                <hr style={{ width: "100%" }} />
-                <MDBRow>
-                  <MDBCol sm="3">
-                    <MDBCardText>Mobile</MDBCardText>
-                  </MDBCol>
-                  <MDBCol sm="9">
-                    <MDBCardText className="text-muted">
-                      (098) 765-4321
+                    {phone}
                     </MDBCardText>
                   </MDBCol>
                 </MDBRow>
@@ -105,7 +126,7 @@ export default function ProfilePage(props) {
                   </MDBCol>
                   <MDBCol sm="9">
                     <MDBCardText className="text-muted">
-                      Bay Area, San Francisco, CA
+                      {city}
                     </MDBCardText>
                   </MDBCol>
                 </MDBRow>
