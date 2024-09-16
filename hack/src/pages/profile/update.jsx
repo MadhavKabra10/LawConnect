@@ -44,19 +44,6 @@ const handleSubmit=(e)=>{
             autoFocus
             required
             margin="dense"
-            id="nameState"
-            name="State"
-            label="State"
-            type="email"
-            fullWidth
-
-            defaultValue={state}
-            variant="standard"
-          />
-          <TextField
-            autoFocus
-            required
-            margin="dense"
             id="nameCity"
             name="City"
             label="City"
@@ -70,9 +57,9 @@ const handleSubmit=(e)=>{
           autoFocus
           required
           margin="dense"
-          id="namePin"
-          name="Pin"
-          label="Pin"
+          id="phone no"
+          name="Phone no"
+          label="Phone no"
           type="email"
           fullWidth
           defaultValue={pin}
