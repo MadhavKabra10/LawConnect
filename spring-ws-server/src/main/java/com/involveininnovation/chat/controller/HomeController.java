@@ -5,6 +5,7 @@ import com.involveininnovation.chat.Security.auth.*;
 import com.involveininnovation.chat.model.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.slf4j.Logger;
@@ -13,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping("Legal")
+@RequestMapping("/Legal")
 @RequiredArgsConstructor
 
 public class HomeController {
@@ -23,6 +24,11 @@ public class HomeController {
     private UserRepository userRepository;
     Logger logger
             = LoggerFactory.getLogger(ChatHistory.class);
+    @PostMapping("/update")
+    public ResponseEntity<HttpStatus> updateUser(@RequestBody User user){
+        userRepository.save(user);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
     @PostMapping ("/register")
     @CrossOrigin(origins = "http://localhost:3000")
     public ResponseEntity<AuthenticationResponse> register(@RequestBody RegisterRequest registerRequest) throws Exception{
