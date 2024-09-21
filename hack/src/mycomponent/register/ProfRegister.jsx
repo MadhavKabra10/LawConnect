@@ -33,7 +33,7 @@ export default function LawyerLogin(){
     }
     return(<>
     <div>
-    <Header/>
+        <Header disable={1}/>
         <div className="h-screen md:flex">
        
 	<div
