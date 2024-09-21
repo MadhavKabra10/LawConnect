@@ -24,7 +24,7 @@ export default function NewsPage() {
     return ( 
         <>
             <div>
-                <Header />
+            <Header disable={1}/>
                 <div>
                     <h1 className="text-4xl font-bold text-center text-black-600 my-4">News</h1>
                 </div>

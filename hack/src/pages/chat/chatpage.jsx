@@ -26,7 +26,7 @@ function ChatPage() {
         }
     }
       ).then(res=>{
-        //console.log(res);
+        console.log(res,1212313);
         axios.post("http://localhost:8080/Legal/self",{email:localStorage.getItem('user')},
         {
           headers: {

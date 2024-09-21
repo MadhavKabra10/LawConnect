@@ -42,7 +42,7 @@ function LoginProf() {
 
     <>
         <div className="fixed top-0 left-0 w-full z-50">
-        <Header />
+        <Header disable={1}/>
       </div>
       <div className='flex-1'>
 
