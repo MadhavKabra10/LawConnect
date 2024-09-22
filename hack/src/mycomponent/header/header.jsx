@@ -54,7 +54,7 @@ const Header = (props) => {
     { id: 4, text: "InfoBot", link: "/info" },
     { id: 5, text: "Chat", link: "/chat" },
     { id: 6, text: "About", link: "/about" },
-    { id: 7 ,text:`${loginCheck()==0?"login":"logout"}`,link:`${loginCheck()==0?"login":"logout"}`}
+    { id: 7 ,text:`${loginCheck()==0?"login":"logout"}`,link:`${loginCheck()==0?"/login":"/logout"}`}
     
   ];
   return (

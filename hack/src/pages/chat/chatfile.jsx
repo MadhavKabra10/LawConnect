@@ -8,7 +8,7 @@ import axios from 'axios';
 
 const ChatFile = (objectlist) => {
   
-  const [user,setUser]=useState([]);
+
   const [notifications, setNotifications] = useState([]);
   const addNotification = (message, type) => {
     const newNotification = { id: Date.now(), message, type };

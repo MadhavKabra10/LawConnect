@@ -49,8 +49,10 @@ public class HomeController {
     public List<User> search() throws Exception{
         List<User> users = userRepository.findAll();
         List<User> filteredUsers = new ArrayList<>();
+        System.out.println("Fuck");
         for (User user : users) {
-            if (!(user.getProfession().equals("user"))) filteredUsers.add(user);
+            if (!(user.getProfession().equals("user"))){ filteredUsers.add(user);
+            System.out.print(user);}
         }
         return filteredUsers;
     }
