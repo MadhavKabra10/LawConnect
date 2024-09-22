@@ -40,7 +40,6 @@ public class AuthenticationService {
                  registerRequest.getProfession(),
                  Roles.USER
                  );
-
         repo.save(user);
         String jwt_token = service.generateToken(user);
         return AuthenticationResponse.builder().token(jwt_token).build();
@@ -68,7 +67,7 @@ public class AuthenticationService {
 
     public AuthenticationResponse verifyOtp(String email,String otp) throws Exception{
         User user = repo.findUserByEmail(email).orElseThrow();
-        if(otpService.verifyOtp(user,otp)){
+        if(!otpService.verifyOtp(user,otp)){
             throw new Exception("INVALID OTP");
         }
         var jwt_token = service.generateToken(user);
