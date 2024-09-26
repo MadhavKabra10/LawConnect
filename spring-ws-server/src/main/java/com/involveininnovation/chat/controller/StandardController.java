@@ -26,7 +26,6 @@ public class StandardController {
         ChatHistory history;
         try {
              history = chatHistory.findChatHistoryById(id).orElse(new ChatHistory());
-             System.out.println("STD Controller " + history);
              List<Message> p = history.getMessages();
 
             for (Message message : p) logger.info(message.getSenderName());
@@ -34,7 +33,6 @@ public class StandardController {
         }
         catch (Exception e){
             logger.error(e.toString());
-
         }
         return new ChatHistory();
     }

@@ -16,7 +16,6 @@ const handleSubmit=(e)=>{
     const s=document.getElementById('nameState').value;
     const c=document.getElementById('nameCity').value;
     const p=document.getElementById('namePin').value;
-    console.log(s,c,p);
     handleClose()
 
 }

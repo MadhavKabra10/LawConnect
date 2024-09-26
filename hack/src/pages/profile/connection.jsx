@@ -43,7 +43,6 @@ export default function Connection() {
         }
       )
       .then((res) => {
-        console.log(res);
         setNotes(res.data.connection);
       });
   }, []);

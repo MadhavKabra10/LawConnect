@@ -28,13 +28,11 @@ function UserRegister() {
       pending: [],
       role: "USER",
     });
-    console.log("89", res.token);
     localStorage.setItem("jwt", res.data.token);
     localStorage.setItem("user", email);
     localStorage.setItem("role", "user");
     localStorage.setItem("dateNow", new Date().getTime);
     navigate("/");
-    console.log("done", res);
   }
 
   return (

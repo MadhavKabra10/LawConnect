@@ -17,17 +17,12 @@ export default function Chat(props) {
   const [open, setOpen] = React.useState(false);
   const [scroll, setScroll] = React.useState('paper');
   const onPrivateMessage = (payload) => {
-    console.log(payload, 19);
     var payloadData = JSON.parse(payload.body);
-    console.log(767867986)
-    console.log(messages, 2);
     //handleClickOpen('paper');
     addMessage(payloadData.senderName, payloadData.message, payloadData.date, payloadData.status);
-    console.log(messages, 3);
   }
   const onConnected = () => {
     let id = "";
-    console.log("Connected", props.user1, props.user2)
     if (props.user1.localeCompare(props.user2) == 1)
       id = props.user1 + props.user2;
     else
@@ -46,8 +41,6 @@ export default function Chat(props) {
         date: new Date().getTime(),
         status: "MESSAGE"
       };
-
-      console.log(chatMessage, messages);
       stompClient.send("/app/private-message", {}, JSON.stringify(chatMessage));
 
     }
@@ -72,7 +65,6 @@ export default function Chat(props) {
       id = props.user1 + props.user2;
     else
       id = props.user2 + props.user1;
-    console.log(id, 1, props.user1, 1, props.user2);
     axios.get(`http://localhost:8080/Legal/connect/${id}`, {
       headers: {
         'Authorization': `Bearer ${localStorage.getItem("jwt")}`,
@@ -80,10 +72,7 @@ export default function Chat(props) {
       }
     })
       .then(response => {
-        //    console.log(response.data);
-        console.log(25);
         setMessages(response.data.messages)
-         console.log(messages,100000000000)
         connect()
       })
       .catch(error => {
@@ -105,16 +94,11 @@ export default function Chat(props) {
       date: date,
       status: status
     }
-    console.log(messages, 123, r)
     setMessages(oldArray => oldArray ? [...oldArray, r] : [r])
-    console.log(messages, 321)
   }
   const handleMessage = (e) => {
-    //console.log(messages,12)
     e.preventDefault();
     let v = document.getElementById('nameMessage').value;
-    // console.log(v,messages);
-    // document.getElementById('nameMessage').innerHTML="";
     sendMessage(v)
   }
 
