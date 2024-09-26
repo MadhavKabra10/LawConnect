@@ -114,6 +114,7 @@ googleapis-common-protos==1.63.2
 greenlet @ file:///private/var/folders/k1/30mswbxs7r1g6zwn8y4fyt500000gp/T/abs_516imz09pb/croot/greenlet_1702059966336/work
 grpcio==1.64.0
 grpcio-status==1.62.2
+h11==0.14.0
 h5py==3.11.0
 HeapDict @ file:///Users/ktietz/demo/mc3/conda-bld/heapdict_1630598515714/work
 holoviews @ file:///private/var/folders/k1/30mswbxs7r1g6zwn8y4fyt500000gp/T/abs_e2ffhlmgnd/croot/holoviews_1707836458582/work
@@ -377,6 +378,7 @@ ujson @ file:///Users/cbousseau/work/recipes/ci_py311/ujson_1677927397272/work
 Unidecode @ file:///tmp/build/80754af9/unidecode_1614712377438/work
 uritemplate==4.1.1
 urllib3 @ file:///private/var/folders/nz/j6p8yfhx1mv_0grj5xl4650h0000gp/T/abs_8erehjlzck/croot/urllib3_1707349248082/work
+uvicorn==0.30.6
 validators @ file:///tmp/build/80754af9/validators_1612286467315/work
 virtualenv==20.26.2
 w3lib @ file:///private/var/folders/nz/j6p8yfhx1mv_0grj5xl4650h0000gp/T/abs_e4l0s0u31h/croot/w3lib_1708639939851/work
