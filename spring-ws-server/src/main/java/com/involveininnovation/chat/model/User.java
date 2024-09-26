@@ -18,6 +18,7 @@ import java.util.List;
 @Getter
 @Setter
 @Builder
+@ToString
 public class User implements UserDetails {
     @Id
     private String email;

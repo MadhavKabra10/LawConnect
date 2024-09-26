@@ -26,7 +26,6 @@ function ChatPage() {
         }
     }
       ).then(res=>{
-        //console.log(res);
         axios.post("http://localhost:8080/Legal/self",{email:localStorage.getItem('user')},
         {
           headers: {
@@ -35,8 +34,6 @@ function ChatPage() {
         }
     }
       ).then(self=>{
-          console.log(self.data.connection,self.data.pending,res.data);
-
          let f= res.data.filter(data=>!self.data.connection.includes(data.email)&&!self.data.pending.includes(data.email));
          setfilterData(f);
         })

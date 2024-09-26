@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import  { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-let navigate=useNavigate()
+
 function LoginUsr (){
   const [email,setEmail]=useState('');
 const [password,setPassword]=useState('');
@@ -25,9 +25,6 @@ const handleSubmit = (event) => {
   })
   .catch(error => {console.error('Error:', error);
   });
-
-  console.log('password:', password);
-  console.log('Email:', email);
 };
     return (
 <>

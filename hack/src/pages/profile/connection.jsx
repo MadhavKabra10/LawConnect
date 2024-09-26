@@ -5,30 +5,7 @@ import axios from "axios";
 import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
 export default function Connection() {
-  const dummyData = [
-    {
-      FirstName: "John",
-      LastName: "Doe",
-      email: "john@example.com",
-      password: "password123",
-      PhoneNo: 1234567890,
-      Gender: "Male",
-      City: "New York",
-      Profession: "Engineer",
-      Role: "Admin",
-    },
-    {
-      FirstName: "Jane",
-      LastName: "Smith",
-      email: "jane@example.com",
-      password: "password456",
-      PhoneNo: 9876543210,
-      Gender: "Female",
-      City: "Los Angeles",
-      Profession: "Doctor",
-      Role: "User",
-    },
-  ];
+  
   const [notes, setNotes] = useState([]);
   useEffect(() => {
     axios
@@ -43,7 +20,6 @@ export default function Connection() {
         }
       )
       .then((res) => {
-        console.log(res);
         setNotes(res.data.connection);
       });
   }, []);
