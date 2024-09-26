@@ -5,6 +5,7 @@ import com.involveininnovation.chat.Security.auth.*;
 import com.involveininnovation.chat.model.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -12,9 +13,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+
+import java.util.*;
 
 @RestController
 @RequestMapping("/Legal")
@@ -50,10 +50,21 @@ public class HomeController {
     @GetMapping ("/search")
     @CrossOrigin(origins = "http://localhost:3000")
     public List<User> search() throws Exception{
-        List<User> users = userRepository.findFirst100Users();
-        Optional<User> user = userRepository.findUserByEmail("ashmit@god.com");
-        users.add(user.get());
-        return users;
+        Random rand = new Random();
+        List<User> list = userRepository.findAll();
+        List<User> temp = new ArrayList<>();
+        for(var it : list){
+            if(it.getProfession().equals("Lawyer"))temp.add(it);
+        }
+        List<User> newList = new ArrayList<>();
+        for (int i = 0; i < 100; i++) {
+            int randomIndex = rand.nextInt(temp.size());
+
+            newList.add(temp.get(randomIndex));
+
+            temp.remove(randomIndex);
+        }
+        return newList;
     }
     @PostMapping ("/connection")
     @CrossOrigin(origins = "http://localhost:3000")
