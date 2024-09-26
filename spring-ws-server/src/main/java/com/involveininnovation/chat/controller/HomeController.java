@@ -50,8 +50,7 @@ public class HomeController {
     @GetMapping ("/search")
     @CrossOrigin(origins = "http://localhost:3000")
     public List<User> search() throws Exception{
-        Pageable limit = PageRequest.of(0,100);
-        List<User> users = (List<User>) userRepository.findAll(limit);
+        List<User> users = userRepository.findFirst100Users();
         Optional<User> user = userRepository.findUserByEmail("ashmit@god.com");
         users.add(user.get());
         return users;

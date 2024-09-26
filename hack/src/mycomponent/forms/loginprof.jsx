@@ -46,11 +46,7 @@ const handleSubmit = (event) => {
               </div>
               <button type="submit" className="mt-4 px-4 py-2 bg-green-500 text-white rounded-md">Login</button>
             </form>
-<<<<<<<< HEAD:hack/src/mycomponent/login.jsx
-
-========
             <Link to="profregister" className='text-white'>new Signup!</Link>
->>>>>>>> 598ac5466578a53fbe2ce19a9f3407d5dc8fb600:hack/src/mycomponent/forms/loginprof.jsx
           </div>
         </div>
       </div>
