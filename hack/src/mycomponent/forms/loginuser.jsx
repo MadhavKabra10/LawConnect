@@ -21,9 +21,6 @@ const handleSubmit = (event) => {
   })
   .catch(error => {console.error('Error:', error);
   });
-
-  console.log('password:', password);
-  console.log('Email:', email);
 };
     return (
 <>

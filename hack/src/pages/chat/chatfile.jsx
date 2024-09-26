@@ -25,7 +25,6 @@ const ChatFile = (objectlist) => {
     event.preventDefault();
     const value = event.target.hiddenValue.value;
     let val=JSON.parse(value)
-    console.log({sender:localStorage.getItem('user'),receiver:val.email,role:'user'},value,val)
     axios.post("http://localhost:8080/Legal/connection",{sender:localStorage.getItem('user'),receiver:val.email,role:'user'},
     {
       headers: {
@@ -45,7 +44,7 @@ const ChatFile = (objectlist) => {
       <Notification key={note.id} message={note.message} type={note.type} />
     ))}
 
-    {console.log(props)}
+    {}
     {props && props.length > 0 ? props.map(prop => (
       <div key={prop.email} className='pt-35 mb-15 p-15' style={{ margin: "0 2rem 0 2rem", border: "none" }}>
         <form onSubmit={notify} className='border-2 border-black-500 p-2' style={{ border: "none" }}>
