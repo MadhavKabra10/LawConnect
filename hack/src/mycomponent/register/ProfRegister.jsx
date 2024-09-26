@@ -9,6 +9,7 @@ export default function LawyerLogin(){
     const [password,setPassword]=useState('');
     const [otp,setOtp]=useState('');
     async function verify(event){
+        event.preventDefault()
      const res= await axios.post("http://localhost:8080/Legal/verify-otp",{email:email,otp:otp})
     localStorage.setItem("jwt", res.data.token);
     localStorage.setItem("user", email);
@@ -33,7 +34,7 @@ export default function LawyerLogin(){
     }
     return(<>
     <div>
-    <Header/>
+        <Header disable={1}/>
         <div className="h-screen md:flex">
        
 	<div

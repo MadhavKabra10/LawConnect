@@ -9,7 +9,6 @@ import loader from "../../mycomponent/loader/loader"
 import { Link } from 'react-router-dom';
 
 export default function NewsCard({ news }) {
-  console.log(news, 14)
   return (
     <div className="flex flex-wrap justify-center gap-6 p-6 bg-gray-100">
     {news && news.length > 0 ? news.map(n => (

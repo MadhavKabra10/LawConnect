@@ -37,7 +37,7 @@ function Home() {
               </h3>
               <br />
               <div className="w-full flex flex-row justify-center">
-                <Link to="/profregister" style={{ textDecoration: "none" }}>
+                <Link exact to="/profregister" style={{ textDecoration: "none" }}>
                   <div className="w-[150px] border-1 bg-white text-black flex border-gray-600 rounded-md h-[50px] ml-[50px] items-center hover:cursor-pointer ">
                     <img
                       className="h-6 w-6 rounded-3xl ml-6"
@@ -48,7 +48,7 @@ function Home() {
                   </div>
                 </Link>
                 <br />
-                <Link to="/userregister" style={{ textDecoration: "none" }}>
+                <Link exact to="/userregister" style={{ textDecoration: "none" }}>
                   <div className="w-[150px] border-1 bg-white flex text-black border-gray-400 rounded-md h-[50px] ml-[50px] items-center hover:cursor-pointer">
                     <img
                       className="h-6 w-6 rounded-3xl ml-6"
@@ -99,11 +99,11 @@ function Home() {
               <p className="text-sm text-gray-600">Intellectual Property</p>
             </div>
           </div>
-          <NavLink exact to={'/chat'}> 
+          <Link exact to={'/chat'}> 
           <button className="px-6 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition">
             Find a Lawyer
           </button>
-          </NavLink>
+          </Link>
         </div>
         <div className="w-full h-[400px] bg-slate-50 flex flex-col items-center justify-center text-center">
           <h2 className="text-3xl font-bold text-gray-800 mb-4">
@@ -132,9 +132,9 @@ function Home() {
               <p className="text-sm text-gray-600">AI-Powered Guidance</p>
             </div>
           </div>
-           <NavLink exact to={'/info'}>   <button className="px-6 py-2 bg-blue-600 text-white rounded-full hover:bg-purple-700 transition">
+           <Link exact to={'/info'}>   <button className="px-6 py-2 bg-blue-600 text-white rounded-full hover:bg-purple-700 transition">
             Start Chat
-          </button> </NavLink>
+          </button> </Link>
         </div>
         <div className="w-full h-[400px] bg-slate-200 flex flex-col items-center justify-center text-center">
           <h2 className="text-3xl font-bold text-gray-800 mb-4">
@@ -163,9 +163,9 @@ function Home() {
               <p className="text-sm text-gray-600">Legal Reforms</p>
             </div>
           </div>
-          <NavLink exact to={'/news'} ><button className="px-6 py-2 bg-blue-600 text-white rounded-full hover:bg-red-700 transition">
+          <Link exact to={'/news'} ><button className="px-6 py-2 bg-blue-600 text-white rounded-full hover:bg-red-700 transition">
             Go to News Page
-          </button> </NavLink>
+          </button> </Link>
         </div>
       </div>
       <Footer />

@@ -7,8 +7,6 @@ export default function Pending() {
     e.preventDefault();
 
     const val =e.target.take.value;
-    console.log(val,1)
-    console.log({sender:localStorage.getItem('user'),receiver:val,role:'non_user'})
     const res=await axios.post("http://localhost:8080/Legal/connection",{sender:localStorage.getItem('user'),receiver:val,role:'non_user'},
     {
         headers: {
@@ -33,7 +31,6 @@ export default function Pending() {
           }
       }
     ).then(res=>{
-            console.log(res);
              setNotes(res.data.pending)
         })
         

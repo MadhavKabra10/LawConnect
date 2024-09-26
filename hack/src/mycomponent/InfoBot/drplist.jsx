@@ -24,7 +24,7 @@ export default function DropList(props) {
           }
 
           {
-            console.log(props)
+
           }
         </AccordionDetails>
       </Accordion>

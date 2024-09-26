@@ -6,7 +6,7 @@ function About() {
     return (
         <>
         <div className="fixed top-0 bg-white left-0 w-full z-50">
-            <Header />
+        <Header disable={1}/>
         </div>
         <div className="pt-20 bg-gradient-to-r from-gray-50 to-blue-50  min-h-screen">
             <div className="container mx-auto py-12 px-6 lg:px-8 text-center">

@@ -28,18 +28,16 @@ function UserRegister() {
       pending: [],
       role: "USER",
     });
-    console.log("89", res.token);
     localStorage.setItem("jwt", res.data.token);
     localStorage.setItem("user", email);
     localStorage.setItem("role", "user");
     localStorage.setItem("dateNow", new Date().getTime);
     navigate("/");
-    console.log("done", res);
   }
 
   return (
     <>
-      <Header />
+             <Header disable={1}/>
       <div className="min-h-screen w-full flex items-center justify-center bg-gradient-to-r from-[#0277B5] to-blue-500">
         <div className="w-full max-w-xl bg-white shadow-2xl rounded-2xl overflow-hidden p-10 ">
           <h2 className="text-3xl font-bold text-center text-gray-800 mb-8">
