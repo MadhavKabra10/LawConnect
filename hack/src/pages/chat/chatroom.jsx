@@ -113,9 +113,8 @@ export default function Chat(props) {
     //console.log(messages,12)
     e.preventDefault();
     let v = document.getElementById('nameMessage').value;
-    // console.log(v,messages);
-    // document.getElementById('nameMessage').innerHTML="";
     sendMessage(v)
+    document.getElementById('nameMessage').value='';
   }
 
   const descriptionElementRef = React.useRef(null);

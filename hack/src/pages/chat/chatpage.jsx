@@ -13,7 +13,7 @@ function ChatPage() {
 
   function searchsubmit(e){
     e.preventDefault();
-    let filter = filterData.filter((item) => item.City.includes(search));
+    let filter = filterData.filter((item) => item.email.startsWith(search));
     setfilterData(filter);
   }
     useEffect(() => {
