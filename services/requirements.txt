@@ -14,6 +14,7 @@ google-generativeai==0.8.2
 googleapis-common-protos==1.65.0
 grpcio==1.66.1
 grpcio-status==1.66.1
+gunicorn==23.0.0
 httplib2==0.22.0
 idna==3.10
 itsdangerous==2.2.0
@@ -21,6 +22,7 @@ Jinja2==3.1.4
 joblib==1.4.2
 MarkupSafe==2.1.5
 numpy==2.1.1
+packaging==24.1
 pandas==2.2.3
 proto-plus==1.24.0
 protobuf==5.28.2
