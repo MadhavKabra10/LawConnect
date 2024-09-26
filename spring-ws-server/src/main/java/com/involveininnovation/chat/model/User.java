@@ -78,4 +78,7 @@ public class User implements UserDetails {
         this.connection=new ArrayList<>();
     }
 
+    public String getProfession() {
+        return profession;
+    }
 }
