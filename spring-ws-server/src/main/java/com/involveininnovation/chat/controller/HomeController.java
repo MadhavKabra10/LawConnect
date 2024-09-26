@@ -5,6 +5,8 @@ import com.involveininnovation.chat.Security.auth.*;
 import com.involveininnovation.chat.model.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,6 +14,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/Legal")
@@ -47,12 +50,11 @@ public class HomeController {
     @GetMapping ("/search")
     @CrossOrigin(origins = "http://localhost:3000")
     public List<User> search() throws Exception{
-        List<User> users = userRepository.findAll();
-        List<User> filteredUsers = new ArrayList<>();
-        for (User user : users) {
-            if (!(user.getProfession().equals("user"))) filteredUsers.add(user);
-        }
-        return filteredUsers;
+        Pageable limit = PageRequest.of(0,100);
+        List<User> users = (List<User>) userRepository.findAll(limit);
+        Optional<User> user = userRepository.findUserByEmail("ashmit@god.com");
+        users.add(user.get());
+        return users;
     }
     @PostMapping ("/connection")
     @CrossOrigin(origins = "http://localhost:3000")
