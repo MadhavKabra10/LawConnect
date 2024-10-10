@@ -57,6 +57,7 @@ public class HomeController {
             if(it.getProfession().equals("Lawyer"))temp.add(it);
         }
         List<User> newList = new ArrayList<>();
+        newList.add(userRepository.findById("demo@email.com").get());
         for (int i = 0; i < 100; i++) {
             int randomIndex = rand.nextInt(temp.size());
 

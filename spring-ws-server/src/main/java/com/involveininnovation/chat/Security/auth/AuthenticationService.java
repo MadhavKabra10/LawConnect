@@ -46,6 +46,7 @@ public class AuthenticationService {
     }
 
     public AuthenticationResponse login(LoginRequest loginRequest) throws Exception {
+        System.out.println(loginRequest);
         try {
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(
                     loginRequest.getEmail(),
