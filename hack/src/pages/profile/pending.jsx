@@ -7,7 +7,7 @@ export default function Pending() {
     e.preventDefault();
 
     const val =e.target.take.value;
-    const res=await axios.post("http://localhost:8080/Legal/connection",{sender:localStorage.getItem('user'),receiver:val,role:'non_user'},
+    const res=await axios.post("https://springworks-latest.onrender.com/Legal/connection",{sender:localStorage.getItem('user'),receiver:val,role:'non_user'},
     {
         headers: {
         'Authorization': `Bearer ${localStorage.getItem("jwt")}`,
@@ -23,7 +23,7 @@ export default function Pending() {
   
     const [notes, setNotes] = useState([])
     useEffect(() => {
-        axios.post("http://localhost:8080/Legal/self",{email:localStorage.getItem('user')},
+        axios.post("https://springworks-latest.onrender.com/Legal/self",{email:localStorage.getItem('user')},
         {
             headers: {
             'Authorization': `Bearer ${localStorage.getItem("jwt")}`,

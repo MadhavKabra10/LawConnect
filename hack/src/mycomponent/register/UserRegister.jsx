@@ -15,7 +15,7 @@ function UserRegister() {
   const [pin, setPin] = useState("");
   async function handleSubmit(e) {
     e.preventDefault();
-    const res = await axios.post("http://localhost:8080/Legal/register", {
+    const res = await axios.post("https://springworks-latest.onrender.com/Legal/register", {
       fname: fname,
       lname: lname,
       email: email,

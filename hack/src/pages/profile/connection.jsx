@@ -10,7 +10,7 @@ export default function Connection() {
   useEffect(() => {
     axios
       .post(
-        "http://localhost:8080/Legal/self",
+        "https://springworks-latest.onrender.com/Legal/self",
         { email: localStorage.getItem("user") },
         {
           headers: {

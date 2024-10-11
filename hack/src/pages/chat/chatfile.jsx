@@ -25,7 +25,7 @@ const ChatFile = (objectlist) => {
     event.preventDefault();
     const value = event.target.hiddenValue.value;
     let val=JSON.parse(value)
-    axios.post("http://localhost:8080/Legal/connection",{sender:localStorage.getItem('user'),receiver:val.email,role:'user'},
+    axios.post("https://springworks-latest.onrender.com/Legal/connection",{sender:localStorage.getItem('user'),receiver:val.email,role:'user'},
     {
       headers: {
       'Authorization': `Bearer ${localStorage.getItem("jwt")}`,

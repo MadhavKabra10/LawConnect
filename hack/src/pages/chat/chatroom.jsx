@@ -50,7 +50,7 @@ export default function Chat(props) {
 
   }
   const connect = () => {
-    let Sock = new SockJS('http://localhost:8080/ws');
+    let Sock = new SockJS('https://springworks-latest.onrender.com/ws');
     stompClient = over(Sock);
     stompClient.connect({}, onConnected, onError);
   }
@@ -65,7 +65,7 @@ export default function Chat(props) {
       id = props.user1 + props.user2;
     else
       id = props.user2 + props.user1;
-    axios.get(`http://localhost:8080/Legal/connect/${id}`, {
+    axios.get(`https://springworks-latest.onrender.com/Legal/connect/${id}`, {
       headers: {
         'Authorization': `Bearer ${localStorage.getItem("jwt")}`,
         'Content-Type': 'application/json'

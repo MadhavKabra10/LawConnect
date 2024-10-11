@@ -17,7 +17,7 @@ const handlePasswordChange = (event) => {
 const handleSubmit = (event) => {
   // Prevent default form submission
   event.preventDefault();
-  axios.post('http://localhost:8080/LegalServices/login', {password: password,email: email}, {headers: {'Content-Type': 'application/json',
+  axios.post('https://springworks-latest.onrender.com/LegalServices/login', {password: password,email: email}, {headers: {'Content-Type': 'application/json',
   },
 })
   .then(response => {

@@ -18,7 +18,7 @@ function ChatPage() {
   }
     useEffect(() => {
       if(localStorage.getItem('role')=="user"){
-      axios.get("http://localhost:8080/Legal/search",
+      axios.get("https://springworks-latest.onrender.com/Legal/search",
         {
           headers: {
           'Authorization': `Bearer ${localStorage.getItem("jwt")}`,
@@ -26,7 +26,7 @@ function ChatPage() {
         }
     }
       ).then(res=>{
-        axios.post("http://localhost:8080/Legal/self",{email:localStorage.getItem('user')},
+        axios.post("https://springworks-latest.onrender.com/Legal/self",{email:localStorage.getItem('user')},
         {
           headers: {
           'Authorization': `Bearer ${localStorage.getItem("jwt")}`,
