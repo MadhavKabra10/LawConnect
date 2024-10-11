@@ -17,6 +17,6 @@ def legal_help():
       #  print(ran,summ)
         return {"summary":summ.text,"files":ran}
 
-CORS(app, origins='http://localhost:3000')
+CORS(app, origins=['http://localhost:3000', 'https://law-connect-blond.vercel.app'])
 if __name__ == '__main__':
     app.run(debug=True)

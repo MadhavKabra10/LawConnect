@@ -21,7 +21,7 @@ public class StandardController {
     Logger logger
             = LoggerFactory.getLogger(StandardController.class);
     @GetMapping("/connect/{id}")
-    @CrossOrigin(origins = "http://localhost:3000")
+    @CrossOrigin(origins = {"http://localhost:3000", "https://law-connect-blond.vercel.app"})
     public ChatHistory retrieveMessages(@PathVariable(name = "id") String id){
         ChatHistory history;
         try {

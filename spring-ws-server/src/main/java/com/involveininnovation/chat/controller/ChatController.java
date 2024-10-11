@@ -31,6 +31,7 @@ public class ChatController {
 //    }
 
     @MessageMapping("/private-message")
+    @CrossOrigin(origins = {"http://localhost:3000", "https://law-connect-blond.vercel.app"})
     public Message receiveMessage(@Payload Message message){
         String id;
         if(message.getSenderName().compareTo(message.getReceiverName())>0){
