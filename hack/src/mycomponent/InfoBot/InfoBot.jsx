@@ -14,7 +14,7 @@ export default function Law() {
     const onSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post("http://127.0.0.1:5000/legalhelp", { email: text });
+            const response = await axios.post("https://law-connect-5.onrender.com/legalhelp", { email: text });
             setData(response.data);
             setIndex(1);
         } catch (error) {

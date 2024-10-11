@@ -25,7 +25,7 @@ export default function ProfilePage(props) {
 
   useEffect( ()=>{
    async function solve(){
-   const res= await axios.post("http://localhost:8080/Legal/self",{email:localStorage.getItem('user')},
+   const res= await axios.post("https://springworks-latest.onrender.com/Legal/self",{email:localStorage.getItem('user')},
      {
          headers: {
          'Authorization': `Bearer ${localStorage.getItem("jwt")}`,

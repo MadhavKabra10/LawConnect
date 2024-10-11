@@ -31,7 +31,7 @@ function App() {
                 <Route exact path='/law' element={<Network/>}></Route>
                 <Route exact path='/chat' element={<ChatPage/>}> </Route>
                 <Route exact path='/info' element={<Law/>}></Route>
-                <Route exact path='/payindex' element={<Index actionUrl="http://localhost:8080/payment/create"/>}></Route>
+                <Route exact path='/payindex' element={<Index actionUrl="https://springworks-latest.onrender.com/payment/create"/>}></Route>
                 <Route exact path='/paycancel' element={<PaymentCancelled homeUrl="http://localhost:3000"/>}></Route>
                 <Route exact path='/paysuccess' element={<PaymentSuccess homeUrl="http://localhost:3000"/>}></Route>
                 <Route exact path='/payerror' element={<Error homeUrl="http://localhost:3000"/>}></Route>

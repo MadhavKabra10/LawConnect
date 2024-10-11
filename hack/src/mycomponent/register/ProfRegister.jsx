@@ -10,7 +10,7 @@ export default function LawyerLogin(){
     const [otp,setOtp]=useState('');
     async function verify(event){
         event.preventDefault()
-     const res= await axios.post("http://localhost:8080/Legal/verify-otp",{email:email,otp:otp})
+     const res= await axios.post("https://springworks-latest.onrender.com/Legal/verify-otp",{email:email,otp:otp})
     localStorage.setItem("jwt", res.data.token);
     localStorage.setItem("user", email);
     localStorage.setItem("role", "non_user");
@@ -22,7 +22,7 @@ export default function LawyerLogin(){
     }
    async function onsubmit(event){
         event.preventDefault();
-       const res= await axios.post("http://localhost:8080/Legal/login",{ password: password, email: email, }, { headers: { 'Content-Type': 'application/json' }, });
+       const res= await axios.post("https://springworks-latest.onrender.com/Legal/login",{ password: password, email: email, }, { headers: { 'Content-Type': 'application/json' }, });
        setState(1);
 
     }

@@ -17,7 +17,7 @@ function LoginProf() {
   const handleSubmit = (event) => {
     // Prevent default form submission
     event.preventDefault();
-    axios.post('http://localhost:8080/Legal/login', { password: password, email: email, }, { headers: { 'Content-Type': 'application/json', }, })
+    axios.post('https://springworks-latest.onrender.com/Legal/login', { password: password, email: email, }, { headers: { 'Content-Type': 'application/json', }, })
       .then(response => {
       //  console.log('Response:', response.data);
         
