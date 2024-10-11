@@ -28,27 +28,28 @@ public class HomeController {
     Logger logger
             = LoggerFactory.getLogger(ChatHistory.class);
     @PostMapping("/update")
+    @CrossOrigin(origins = {"http://localhost:3000", "https://law-connect-blond.vercel.app"})
     public ResponseEntity<HttpStatus> updateUser(@RequestBody User user){
         userRepository.save(user);
         return new ResponseEntity<>(HttpStatus.OK);
     }
     @PostMapping ("/register")
-    @CrossOrigin(origins = "http://localhost:3000")
+    @CrossOrigin(origins = {"http://localhost:3000", "https://law-connect-blond.vercel.app"})
     public ResponseEntity<AuthenticationResponse> register(@RequestBody RegisterRequest registerRequest) throws Exception{
         return ResponseEntity.ok(authenticationService.register(registerRequest));
     }
     @PostMapping ("/login")
-    @CrossOrigin(origins = "http://localhost:3000")
+    @CrossOrigin(origins = {"http://localhost:3000", "https://law-connect-blond.vercel.app"})
     public ResponseEntity<AuthenticationResponse> login(@RequestBody LoginRequest loginRequest) throws Exception{
         return ResponseEntity.ok(authenticationService.login(loginRequest));
     }
     @PostMapping("/verify-otp")
-    @CrossOrigin(origins = "http://localhost:3000")
+    @CrossOrigin(origins = {"http://localhost:3000", "https://law-connect-blond.vercel.app"})
     public ResponseEntity<AuthenticationResponse> verifyOtp(@RequestBody OtpModel otpModel)throws Exception{
         return ResponseEntity.ok(authenticationService.verifyOtp(otpModel.email(), otpModel.otp()));
     }
     @GetMapping ("/search")
-    @CrossOrigin(origins = "http://localhost:3000")
+    @CrossOrigin(origins = {"http://localhost:3000", "https://law-connect-blond.vercel.app"})
     public List<User> search() throws Exception{
         Random rand = new Random();
         List<User> list = userRepository.findAll();
@@ -68,7 +69,7 @@ public class HomeController {
         return newList;
     }
     @PostMapping ("/connection")
-    @CrossOrigin(origins = "http://localhost:3000")
+    @CrossOrigin(origins = {"http://localhost:3000", "https://law-connect-blond.vercel.app"})
     public String connection(@RequestBody ChatConnect chatConnect) throws Exception{
         String sender=chatConnect.getSender();
         String receiver=chatConnect.getReceiver();
@@ -148,7 +149,7 @@ public class HomeController {
 
     }
     @PostMapping ("/self")
-    @CrossOrigin(origins = "http://localhost:3000")
+    @CrossOrigin(origins = {"http://localhost:3000", "https://law-connect-blond.vercel.app"})
     public User recoverself(@RequestBody Mail mail){
         return userRepository.findUserByEmail(mail.getEmail()).orElse(new User());
     }
