@@ -92,6 +92,7 @@ jobs:
 
       - name: Build and push Docker images
         run: |
+          cd spring-ws-server
           docker build \
             --build-arg PAYPAL_CLIENT_ID=${{ secrets.PAYPAL_CLIENT_ID }} \
             --build-arg PAYPAL_CLIENT_SECRET=${{ secrets.PAYPAL_CLIENT_SECRET }} \
