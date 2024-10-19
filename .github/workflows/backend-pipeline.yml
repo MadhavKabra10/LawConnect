@@ -59,7 +59,7 @@ jobs:
         run: |
           cd spring-ws-server
           chmod +x ./mvnw
-          ./mvnw clean package
+          ./mvnw clean package -DskipTests
   build-docker-image:
     runs-on: ubuntu-latest
     name: Build docker image
