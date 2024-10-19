@@ -100,7 +100,7 @@ jobs:
             --build-arg TWILIO_PHONENO=${{ secrets.TWILIO_PHONENO }} \
             --build-arg SECRET_KEY=${{ secrets.SECRET_KEY }} \
             --build-arg SPRING_DATA_MONGODB_URI=${{ secrets.SPRING_DATA_MONGODB_URI }} \
-            --build-arg SERVER_PORT=${{ secrets.PORT }} \
+            --build-arg SERVER_PORT=${{ secrets.SERVER_PORT }} \
             -t manasagar/law_clone-api:latest \
             -f spring-ws-server/Dockerfile spring-ws-server
           docker push ${{ secrets.DOCKERHUB_USERNAME }}/law_clone-api:latest
