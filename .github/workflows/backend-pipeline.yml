@@ -1,0 +1,103 @@
+name: Backend API Pipeline
+on:
+  push:
+    paths:
+      - spring-ws-server/**
+      - .github/workflows/backend-pipeline.yml
+jobs:
+  compile:
+    runs-on: ubuntu
+    name: compile-project
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: 17
+
+      - name: Compile project
+        run: |
+          cd spring-ws-server
+          ./mvnw clean compile
+  unit-tests:
+    runs-on: ubuntu
+    name: Unit tests
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: 17
+
+      - name: Running unit tests
+        run: |
+          cd spring-ws-server
+          ./mvnw clean test
+  build:
+    runs-on: ubuntu
+    name: Build backend
+    needs: [compile, unit-tests]
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: 17
+
+      - name: Build backend
+        run: |
+          cd spring-ws-server
+          ./mvnw clean package
+  build-docker-image:
+    runs-on: ubuntu
+    name: Build docker image
+    needs: [build]
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: 17
+      - name: Build backend
+        run: |
+          cd spring-ws-server
+          ./mvnw clean package
+#      - name: Extract project version **COMMAND NOT WORKING TRY LATER**
+#        id: extract_version
+#        run: |
+#          cd spring-ws-server
+#          echo "VERSION=$(./mvnw -q -Dexec.executable='echo' -Dexec.args='${project.version}' --non-recursive exec:exec)" >> $GITHUB_OUTPUT
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          access_token: ${{ secrets.DOCKERHUB_ACCESS_TOKEN }}
+
+      - name: Build and push Docker images
+        run: |
+          docker build \
+            --build-arg PAYPAL_CLIENT_ID=${{ secrets.PAYPAL_CLIENT_ID }} \
+            --build-arg PAYPAL_CLIENT_SECRET=${{ secrets.PAYPAL_CLIENT_SECRET }} \
+            --build-arg TWILIO_SID=${{ secrets.TWILIO_SID }} \
+            --build-arg TWILIO_AUTH_TOKEN=${{ secrets.TWILIO_AUTH_TOKEN }} \
+            --build-arg TWILIO_PHONENO=${{ secrets.TWILIO_PHONENO }} \
+            --build-arg SECRET_KEY=${{ secrets.SECRET_KEY }} \
+            --build-arg SPRING_DATA_MONGODB_URI=${{ secrets.SPRING_DATA_MONGODB_URI }} \
+            --build-arg SERVER_PORT=${{ secrets.PORT }} \
+            -t manasagar/law_clone-api:latest \
+            -f spring-ws-server/Dockerfile spring-ws-server
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/law_clone-api:latest
+      
