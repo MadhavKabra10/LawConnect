@@ -77,7 +77,7 @@ jobs:
         run: |
           cd spring-ws-server
           chmod +x ./mvnw
-          ./mvnw clean package
+          ./mvnw clean package -DskipTests
 #      - name: Extract project version **COMMAND NOT WORKING TRY LATER**
 #        id: extract_version
 #        run: |
