@@ -1,6 +1,6 @@
 FROM openjdk:17
 WORKDIR /app
-COPY ./spring-ws-server/target/chat-0.0.1-SNAPSHOT.jar /app/law_connect.jar
+COPY ./target/chat-1.0.0.jar /app/law_connect.jar
 EXPOSE 8080
 ARG PAYPAL_CLIENT_ID
 ARG PAYPAL_CLIENT_SECRET
